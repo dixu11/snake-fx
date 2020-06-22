@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.DialogEvent;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -36,12 +37,12 @@ public class Game extends Stage {
     private Segment snake;
     private List<Food> foodList = new ArrayList<>();
     private Player player = new Player();
-    private Counter counter = new Counter(player);
+    private Counter counter;
     private AnimationTimer timer;
 
     private long moves = 0;
 
-//    private boolean[] keys = new boolean[500]; // false wszedzie
+    private boolean[] keys = new boolean[500];
 
 
     public Game(int rowCount) {
@@ -70,6 +71,7 @@ public class Game extends Stage {
     private void initComponents() {
         snake = new Segment(0, 0, Color.BROWN);
         root.getChildren().add(snake);
+        counter = new Counter(player);
         root.getChildren().add(counter);
     }
 
@@ -95,9 +97,30 @@ public class Game extends Stage {
             @Override
             public void handle(KeyEvent event) {
                 snake.updateDirection(event.getCode());
+                keys[event.getCode().ordinal()] = true;
+                checkBackToMenuShortcut();
+            }
+        });
+        scene.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                keys[event.getCode().ordinal()] = false;
             }
         });
     }
+
+    private void checkBackToMenuShortcut() {
+        int ctrlCode = KeyCode.CONTROL.ordinal();
+        int altCode = KeyCode.ALT.ordinal();
+        int qCode = KeyCode.Q.ordinal();
+        if (keys[ctrlCode] && keys[altCode] && keys[qCode]) {
+            timer.stop();
+            close();
+            StageFactory stageFactory = new StageFactory();
+            stageFactory.createMainMenu();
+        }
+    }
+
 
 
     private void updateGame() {
@@ -173,6 +196,7 @@ public class Game extends Stage {
             @Override
             public void handle(DialogEvent event) {
                player.setName(window.resultProperty().get());
+               player.setFinalScore(moves/2.0); //1 move is 0.5 sec
                 savePlayer();
                 StageFactory stageFactory = new StageFactory();
                 stageFactory.createMainMenu();
@@ -181,6 +205,7 @@ public class Game extends Stage {
     }
 
     private void savePlayer() {
-    //TODO
+        RankingManager rankingManager = new RankingManager();
+        rankingManager.savePlayer(player);
     }
 }

@@ -61,7 +61,7 @@ public class Segment extends GameObject {
     }
 
     public void updateDirection(KeyCode code) {
-        Direction newDirection = null;
+        Direction newDirection;
         switch (code) {
             case A:
                 newDirection = Direction.LEFT;
@@ -75,6 +75,8 @@ public class Segment extends GameObject {
             case D:
                 newDirection = Direction.RIGHT;
                 break;
+            default:
+                newDirection = direction;
         }
         if (nextSegment != null && newDirection.getReverseDirection() == lastDirection) {
             return;

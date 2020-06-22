@@ -50,7 +50,8 @@ public class Menu extends Stage {
         scores.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //tworznie okna rankingu
+                StageFactory stageFactory = new StageFactory();
+                stageFactory.createRankingStage();
             }
         });
 

@@ -17,6 +17,9 @@ public class StageFactory {
         BoardSizePicker boardSizePicker = new BoardSizePicker();
     }
 
+    public void createRankingStage(){
+        Ranking ranking = new Ranking();
+    }
 
 
 
