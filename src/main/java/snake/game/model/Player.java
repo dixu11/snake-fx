@@ -1,6 +1,6 @@
-package game.snake.model;
+package snake.game.model;
 
-import game.snake.logic.Game;
+import snake.game.game.Game;
 
 import java.io.Serializable;
 

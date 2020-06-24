@@ -1,10 +1,10 @@
-package game.snake.model;
+package snake.game.model;
 
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import game.snake.logic.Game;
+import snake.game.game.Game;
 
 public class Segment extends GameObject {
     private int lastX;

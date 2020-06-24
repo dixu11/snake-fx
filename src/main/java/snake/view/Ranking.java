@@ -1,7 +1,7 @@
-package game.stages;
+package snake.view;
 
-import game.snake.logic.RankingManager;
-import game.snake.model.Player;
+import snake.game.game.RankingManager;
+import snake.game.model.Player;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

@@ -1,6 +1,6 @@
-package game.snake.logic;
+package snake.game.game;
 
-import game.snake.model.Player;
+import snake.game.model.Player;
 
 import java.io.*;
 import java.util.ArrayList;

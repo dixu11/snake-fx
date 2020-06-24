@@ -1,4 +1,4 @@
-package game.snake.model;
+package snake.game.model;
 
 import javafx.scene.paint.Color;
 

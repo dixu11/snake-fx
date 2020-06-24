@@ -1,19 +1,19 @@
-package game.snake.model;
+package snake.game.model;
 
 import javafx.scene.paint.Color;
 
-public class GrowingFood extends Food {
-    public GrowingFood(int cordX, int cordY) {
+public class ShorteningFood extends Food {
+    public ShorteningFood(int cordX, int cordY) {
         super(cordX, cordY);
     }
 
     @Override
     public boolean isGrowing() {
-        return true;
+        return false;
     }
 
     @Override
     public Color getFoodColor() {
-        return Color.YELLOW;
+        return Color.GREEN;
     }
 }

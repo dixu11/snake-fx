@@ -1,6 +1,6 @@
-package game.snake.logic;
+package snake.game.game;
 
-import game.stages.StageFactory;
+import snake.view.ViewFactory;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
@@ -12,10 +12,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import game.snake.model.Counter;
-import game.snake.model.Food;
-import game.snake.model.Player;
-import game.snake.model.Segment;
+import snake.game.model.Counter;
+import snake.game.model.Food;
+import snake.game.model.Player;
+import snake.game.model.Segment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -116,8 +116,8 @@ public class Game extends Stage {
         if (keys[ctrlCode] && keys[altCode] && keys[qCode]) {
             timer.stop();
             close();
-            StageFactory stageFactory = new StageFactory();
-            stageFactory.createMainMenu();
+            ViewFactory viewFactory = new ViewFactory();
+            viewFactory.createMainMenu();
         }
     }
 
@@ -198,8 +198,8 @@ public class Game extends Stage {
                player.setName(window.resultProperty().get());
                player.setFinalScore(moves/2.0); //1 move is 0.5 sec
                 savePlayer();
-                StageFactory stageFactory = new StageFactory();
-                stageFactory.createMainMenu();
+                ViewFactory viewFactory = new ViewFactory();
+                viewFactory.createMainMenu();
             }
         });
     }

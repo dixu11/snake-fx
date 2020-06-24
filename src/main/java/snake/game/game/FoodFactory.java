@@ -1,6 +1,6 @@
-package game.snake.logic;
+package snake.game.game;
 
-import game.snake.model.*;
+import snake.game.model.*;
 
 import java.util.Random;
 

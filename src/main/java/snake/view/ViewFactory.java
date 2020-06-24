@@ -1,9 +1,10 @@
-package game.stages;
+package snake.view;
 
-import javafx.stage.Stage;
-import game.snake.logic.Game;
+import snake.controller.BoardSizePickerController;
+import snake.controller.MenuController;
+import snake.game.game.Game;
 
-public class StageFactory {
+public class ViewFactory {
 
     public void createGameStage(int rowCount) {
         Game game = new Game(rowCount);
@@ -11,10 +12,12 @@ public class StageFactory {
 
     public void createMainMenu() {
         Menu menu = new Menu();
+        MenuController menuController = new MenuController(menu);
     }
 
     public void createBoardSizePicker() {
         BoardSizePicker boardSizePicker = new BoardSizePicker();
+        BoardSizePickerController controller = new BoardSizePickerController(boardSizePicker);
     }
 
     public void createRankingStage(){

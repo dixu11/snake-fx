@@ -1,6 +1,6 @@
-package game;
+package snake;
 
-import game.stages.StageFactory;
+import snake.view.ViewFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -13,7 +13,7 @@ public class Launcher  extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        StageFactory stageFactory = new StageFactory();
-        stageFactory.createMainMenu();
+        ViewFactory viewFactory = new ViewFactory();
+        viewFactory.createMainMenu();
     }
 }

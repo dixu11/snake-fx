@@ -3,7 +3,7 @@ module snake {
     requires javafx.fxml;
     requires javafx.graphics;
 
-    opens game.snake.model;
-    opens game.stages;
-    opens game;
+    opens snake.game.model;
+    opens snake.view;
+    opens snake;
 }

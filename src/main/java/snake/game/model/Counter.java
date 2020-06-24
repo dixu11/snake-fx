@@ -1,7 +1,7 @@
-package game.snake.model;
+package snake.game.model;
 
 import javafx.scene.control.Label;
-import game.snake.logic.Game;
+import snake.game.game.Game;
 
 public class Counter extends Label {
 
